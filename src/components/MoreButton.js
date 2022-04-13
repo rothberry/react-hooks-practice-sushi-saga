@@ -1,7 +1,19 @@
-import React from "react";
+import React from "react"
 
-function MoreButton(props) {
-  return <button onClick={/* Fill me in! */ null}>More sushi!</button>;
+const MoreButton = ({ setStartingIndex, startingIndex }) => {
+
+  const clickHandler = (event) => {
+    // console.log(event.target)
+    setStartingIndex(startingIndex + 4)
+    // do something else...
+  }
+  
+	return (
+		<button onClick={clickHandler}>
+		{/* <button onClick={() => setStartingIndex(startingIndex + 4)}> */}
+			More sushi!
+		</button>
+	)
 }
 
-export default MoreButton;
+export default MoreButton
