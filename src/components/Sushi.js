@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const Sushi = ({ oneSushi, addPlate }) => {
+const Sushi = ({ oneSushi, addPlate, deleteSushi }) => {
 	const [showSushi, setShowSushi] = useState(true)
 
 	const eatHandler = (event) => {
@@ -11,7 +11,6 @@ const Sushi = ({ oneSushi, addPlate }) => {
     // if (!eatSushi) {
     //   addPlate...
     // }
-
     
     // showSushi=true && addPlate=false => is False
     if (showSushi && addPlate(oneSushi)) {
@@ -25,9 +24,18 @@ const Sushi = ({ oneSushi, addPlate }) => {
     //   addPlate(oneSushi)
     //   setShowSushi(false)
     // }
-
 	}
 
+  const eatHandlerBonus = event => {
+    // add plate
+    // remove img
+    // remove from db
+    // remove from our sushis state
+  }
+
+  const killSushi = event => {
+    deleteSushi(oneSushi.id)
+  }
 	return (
 		<div className="sushi">
 			<div className="plate" onClick={eatHandler}>
@@ -39,6 +47,7 @@ const Sushi = ({ oneSushi, addPlate }) => {
 			<h4 className="sushi-details">
 				{oneSushi.name} - ${oneSushi.price}
 			</h4>
+      <button onClick={killSushi}>KILL SUSHI</button>
 		</div>
 	)
 }
